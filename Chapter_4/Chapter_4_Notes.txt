@@ -12,7 +12,60 @@ For loops 'iterate' over each 'element' in a 'sequence'.
 For loop format:
 	for [element] in [sequence]:
 		code
-		
+Note that when making a for loop, it is not necessary to initialize the counter variable.
+	Python will already do it.
+
 The range() function is a great way to make a 'sequence' to be used in a for loop.
 You can make range() run in the following way:
 	range([start], [stop], [step])
+	The range can be sequence, for example:
+	for i in range(0,10,1):
+		print(i)
+		i += 1
+I wrote counter.py to show this.
+Note that when using range() in a for loop, the final iteration is [stop] -1,
+	because once the counter reaches the [stop] value, the loop is FALSE.
+The [step] argument in the 'range()' function is not always needed if the counter is
+	modified in the loop code. It makes no difference whether to modify the counter with
+	the step argument or in the loop itself.
+
+
+Sequence operators and functions with strings
+The 'in' operator is very useful when working with strings.
+	It lets you parse through the sequence (the string) and perform actions
+	when the element ([element] in [sequence]) is found.
+I wrote a program named vowel_calculator.py to showcase this.
+	Note that "letter" is a known element by python for strings, I did not have to
+	write a way to specifically count characters in a string.
+len() is a great command to check the length of a string contained in the ()
+
+Strings and position numbers, Indexing
+A string can be thought of as an array of characters, with each character having a position in the array.
+For example, the string:
+quote = joshuamccauley
+Can be accessed one character at a time.
+quote[0] -> j
+quote[3] -> h
+What's important to know is that strings also have negative positions, which are just the string backwards.
+quote[-1] -> y
+quote[-3] -> l
+Each position can be referred to as an index of the string.
+I wrote a program quote_sampler.py to showcase how the string positions work.
+
+Mutability
+Variables that are mutable are those that can be modified after an assignment. For example, this array is mutable because the following can work:
+my_array = [0, 1, 2, 3, 4]
+my_array[1] = 6
+my_array[1] -> 6
+However, strings are immutable. They can be re-declared, but they cannot be modified (mutated).
+string = "This is a test."
+string[0] = "x" -> error
+However, if you make a string a list, it can work (more on lists later though):
+string = "This is a test."
+string_list = list(string)
+string_list[0] = "x"
+string_list -> "xhis is a test."
+Now you could redeclare the string as the new list if desired.
+	It may be easier to just change the string explicitly by declaring it again in many cases. If not possible to declare every time, changing to a list do modify is a good idea.
+
+
