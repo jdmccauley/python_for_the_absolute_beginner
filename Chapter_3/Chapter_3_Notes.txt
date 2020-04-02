@@ -1,0 +1,107 @@
+Chapter 3 Notes
+This chapter will introduce modules, branching, loops, and program planning.
+
+Modules
+Modules are sets of functions that can be called in a program to use those functions without hard
+coding them into the program from scratch. For example, in my introduction to this book I
+wrote about directory operations with the module os. In this chapter, the module used in the
+examples is 'random'.
+
+With the 'random' module there are many functions, and the two discussed are randint() and 
+randrange(). The first takes arguments of starting and ending integers, and produces a random
+integer between the two, including the minimum and maximum. The latter takes a max integer
+and produces any integer from 0 to one integer below the max.
+I'll write a program named chance.py to showcase these.
+
+Branching
+Branching is a very important part of programming; it's how you allow for a decision to follow
+one or more paths. A common branching method is using the 'if' statement. The 'if' statement
+checks whether the 'condition' written in a program is valid. A 'condition' will be true or false.
+For example:
+if programmer == 'Josh':
+	print('The programmer is Josh.')
+This checks if the programmer is Josh, and if so, runs the code
+after the colon; it prints 'The programmer is Josh.'
+The '== Josh' is the condition, which means 'is Josh'. The '==' is a comparison operator that
+means 'is equal to'. A single '=' would be as assignment in a program, so the double '=' is a
+comparison operator. Other comparison operators include:
+!= : not equal to
+> : greater than
+< : less than
+>= : greater than or equal to
+<= : less than or equal to 
+When the condition is not met, the program does not execute the line of code within the 'block'
+below the 'if' statement. A 'block' is a set of code indented below a line of code to show that
+the indented lines of code are dependent on the unindented line of code above it. In the example
+above, the 'print' function is dependent on the result of the 'if' statement.
+It is best practice to use either a tab or four spaces to make an indention. I will use tabs.
+
+The 'else' statement performs an action when the 'if' statement is not met. The 'else'
+statement must be in the same block as the 'if' statement; do not contain the 'else' within the
+'if' block. For example, this is correct:
+if programmer == 'Josh':
+	print('The programmer is Josh.')
+else:
+	print('The programmer is not Josh.')
+For branching if statements with more than two possibilities, use 'elif' for additional conditions.
+The 'elif' can be seen as a 'else if'; a secondary 'if' statement that is not yet 'else'.
+For example:
+if programmer == Josh:
+	print('The programmer is Josh.')
+elif programmer == Kyle:
+	print('The programmer is Kyle.')
+elif progammer == 'Jakob':
+	print('The programmer is Jakob.')
+else:
+	print('I don't know who the programmer is.')
+This checks the first 'if', then checks the first 'elif', then the second 'elif', then goes to else.
+You an have as many 'elif' statements as you want, as long as you have an 'if' at first.
+I will make an example of the if, elif, and else statements in the program programmer.py
+I will make an example of the if and else statements in the program password.py
+
+While loops
+While loops are a way to execute lines of code numerous times until a specified condition is met.
+The way to write the loop is the following:
+while 'variable' 'condition':
+	code
+You must initialize the 'variable' with some value. In addition, it is very important to
+make some modification to the variable per iteration of the loop such that eventually
+the loop will end. You must change the variable to have the while statement be TRUE at some point
+otherwise the loop will iterate until the end of time.
+The official name of the 'variable' used in while loops is the 'sentry variable'.
+
+Note: to end an infinite loop, press Ctrl+C
+I will write a program named toddler_simulator.py to showcase the while loop.
+Also note: any variable can be true or false without a condition written.
+If a variable has any value (string is anything, integer and float are any value other than 0)
+then it is TRUE. So, the following statement
+if value:
+Can be a an actual statement. If 'value' is any string other than empty ('') or integer/float
+other than zero, the branching ends.
+Essentially, this three lines of code are the same:
+if value:
+if value != 0
+if value != ''
+
+"break" is an important command to put in loops as a safeguard against infinite loops. If I make
+a loop that could continue forever, it is useful to make a condition where the loop breaks
+at some large value. That way the "break" may not happen for a normal run, but will stop
+before it gets out of hand.
+"continue" works in the opposite fashion in that a condition with "continue" as the action
+can skip the loop instance for that value and continue on to the next value in the loop.
+
+Logical Operators
+"and", "or", and "not" are logical operators, in comparison to the comparison operators (==, !=...).
+"and" combines conditions into a compound condition, where all of the conditions must be TRUE
+for the compound condition to be TRUE. "or" can have any one of the conditions in a compound
+condition be TRUE for the compound condition overall to be TRUE. "not" reverses a condition
+such that what was TRUE is now FALSE, or what was FALSE is now TRUE.
+
+Pseudocode
+Pseudocode is very helpful in writing algorithms, which are sets of instructions
+to accomplish a task. Sometimes algorithms require a bit of planning to work well, so writing
+short hand code (or pseudocode) helps make an outline for writing the code.
+
+When working on the challenges, something came up:
+	'else' for an 'if' statement embedded in a 'while' loop makes the 'else' always run
+	for each iteration when the condition in the 'while' loop is false.

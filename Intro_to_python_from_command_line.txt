@@ -1,0 +1,32 @@
+I am going to read Python Progamming for the Absolute Beginner.
+In this read, I will take notes on what I learn with Notepad++, and I will run all of my work
+with a Linux environment command line.
+
+For starting, I think it is a good idea to change to the working directory from command line first.
+From there, then run python3 and perform directory changes.
+My directory for this course can be reached with the following in command line:
+cd /mnt/c/Users/Joshua/Documents/Coding/Python_for_the_absolute_beginner
+Explanation: this changed the directory from linux root directory to the "mounted media", c drive,
+Users, Joshua, Documents, Coding, this book name.
+
+
+To begin, this is how to enter a python3 interactive environment from commmand line:
+python3
+The python3 interactive environment lets you test python code in real time.
+To run scripts however, it is easiest to switch back to bash.
+
+Within python3, this is how you check your current directory:
+import os
+os.getcwd()
+To change your directory, you can do this:
+os.chdir('directory_of_interest')
+To make a new directory, use the following command:
+os.mkdir(path_to_new_directory_name)
+Otherwise, if path not written the new directory is made in the current directory if
+the new directory name is written in quotes like the following:
+os.mkdir('new_directory_name')
+To go one directory down, use the following command:
+os.chdir('../')
+
+To exit python3 back to bash in command line, use the following command:
+exit()

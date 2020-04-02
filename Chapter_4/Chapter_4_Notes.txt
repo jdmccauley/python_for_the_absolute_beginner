@@ -1,0 +1,18 @@
+Chapter 4 Notes
+
+Note that 'if, else' processes are called 'statements', not loops.
+Up until this point, the only loops I mentioned were 'while' loops.
+
+Loops, again
+While loops repeat themselves based on an assessment of a condition.
+For loops on the other hand, repeat themselves based on a sequence until the sequence ends.
+So in other words, a loop runs until the sequence (or list) is complete, and the while
+	loop runs until the condition is TRUE.
+For loops 'iterate' over each 'element' in a 'sequence'.
+For loop format:
+	for [element] in [sequence]:
+		code
+		
+The range() function is a great way to make a 'sequence' to be used in a for loop.
+You can make range() run in the following way:
+	range([start], [stop], [step])

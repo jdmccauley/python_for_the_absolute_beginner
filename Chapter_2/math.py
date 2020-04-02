@@ -1,0 +1,11 @@
+#This is an example of using math in python
+print("Let's do some math.")
+age = int(input("Enter your age: "))
+print("You said that you were", age, ".")
+print("You've been alive for", age*365*24*60*60, "seconds.")
+print("That was multiplication.")
+print("Now let's do some other math.")
+print("Your age divided by 2 =", age/2)
+print("That could be an whote number if you're even-aged, or a float if you're odd aged.")
+print("Now your age divided by 10 without any remainder is", age//10, ".")
+print("That remainder is", age%10, ".")

@@ -1,0 +1,66 @@
+Chapter 2 Notes
+The print() function make a new line at the end of the function.
+If you do not want that, you can specify what is the end of the line.
+Example:
+print("This", end = " ")
+print('is a use of one lined print.')
+This makes the word "This" followed by the next text without a new line.
+That is because the end of the first print function is specified with ending on a space, not new line.
+
+Using triple quotes lets you make the print function span multiple lines of code.
+print("""
+This is some text
+that spans many lines.
+It can look like a poem.
+Or not.""")
+The triple quote print can be useful when making code not a mile long, but multiple lines long.
+It can also be useful when making some type of drawing with characters like
+print("""
+a q p
+   w
+""")
+
+I already used \n for new line in example print programs, but also know that \n can be used
+as a tab character. And \a sounds the system bell.
+Also, if you put a \ in front of a quote, it won't end a print statement.
+For example:
+print("This is a quote: \"Quote time\" - Josh")
+
+Also note that you can do string math.
+print("This" + "is" + "a" + "string") = This is a string.
+print("uwu"*3) = uwuuwuuwu
+
+Math
+You can do math in python, and it's very easy to do. You can also do math on assigned variables.
+For example:
+my_apples = 10
+my_apples-5 = 5
+Note that the first line was an assignment of my_apples, and I did math on it.
+I'll write a program named math.py to showcase some math.
+Note that input() takes the input as a string, so you'll have to reassign the variable
+as an int or float if you want the variable to be a number.
+Or to make things easier, you can do this:
+my_apples = int(input("How many apples do you have?"))
+Note that putting the input() inside of the int() is called 'nesting' the input() function.
+Actually, please note that the input() function always makes the variable a string.
+
+
+Note that when making variables, you can't start with a number. All else is fine.
+Try to make variable names that explain that the variable is doing.
+This makes it easy to understand what the variable is for.
+
+Strings
+You can do string manipulations with print to make all things uppercase, lowercase, capitalizing
+every word, and with replacements of parts of the string.
+I'll make a program named strings.py to show this.
+
+Math again
+When doing mathematic modifications to a variable, you can save space
+by using augmented assigment operators.
+This just means you can save space.
+For example:
+price = 5
+price *= 5
+price = price *5
+The second and third lines of code do the same thing. You can do this to save space for all
+math operations to variables.

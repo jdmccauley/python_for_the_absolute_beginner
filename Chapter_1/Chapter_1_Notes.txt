@@ -1,0 +1,25 @@
+Chapter 1 Notes:
+Python code can be executed in the python environment, or as a script.
+Interactive mode lets you test out code like a command line.
+Scripts let you write programs and save them to run as a whole.
+You can write scripts in any text editor as long as you save the file as a .py
+Comments are very important in any code. To make a comment in a python program, use a #.
+#This is a comment in python code
+
+print() is the first function described in the book. It lets you print something to the screen.
+print('Hello') is the same as print("Hello")
+" vs ' makes no difference, but you need a pair of them to make the computer print text.
+Note that sometimes it may be useful to use " or ' depending if your function has a ' in the text
+like the word let's, or if quoting some like "this". Use the other quote mark to surround your
+text when using the other in the text.
+If you have a variable, you can print that too:
+name = 'Josh'
+print(name)
+
+input() is another useful command. It takes input from the user until they press enter.
+The program does not move on until something is entered for the input() command.
+If you want the user to input a variable, use this:
+input(variable_name)
+The user input will become variable_name.
+
+I will write a few examples of code in this directory to test these functions.
