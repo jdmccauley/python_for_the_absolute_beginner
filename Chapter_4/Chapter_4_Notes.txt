@@ -67,5 +67,79 @@ string_list[0] = "x"
 string_list -> "xhis is a test."
 Now you could redeclare the string as the new list if desired.
 	It may be easier to just change the string explicitly by declaring it again in many cases. If not possible to declare every time, changing to a list do modify is a good idea.
+Note: you can parse strings to check if characters are in the string with a for loop.
+	For example, you can use a loop to check
+		for letter in [string]:
+			if letter not in [string_2]:
+				[string_2] += letter
+	Note that when comparing strings, you must make sure that the cases are the same.
+
+Slicing
+Note that you can access each character at a time by calling its index (or negative index), or range of indexes.
+You can use this 'slice' to make modifications to other strings if desired.
+I'll write a program named sentense_slicer.py to show how slices work.
+The end index of a slice specifies where to stop before.
+So the following
+	quote = "test"
+	print(quote[1:3]) -> "es"
+is true because "es" is from index 1 to 2, before index 3.
+Important to note: not having a beginning index assumes zero.
+	print(quote[:3]) -> tes
+Also, just a colon in the brackets returns the whole sequence.
+Stepping can be added at the end of the slicing:
+string[start:end:step]
+	Default is +1.
+	To go backwards, just use: string[0:len(string):-1]
+	Or better yet, just do: string[::-1]
 
 
+None
+Note that the value "None" in python is special. It makes the variable null and return false.
+I have done this in the past for strings, with [string] = ""
+So, note that these two lines are the same:
+	string = ""
+	string = None
+
+Tuples
+In python, a tuple is an object that can contain multiple elements that may not all be the same type.
+For all intents and purposes, tuples are like arrays in some other languages.
+Tuples are declared like lists, but with "()" instead of "[]".
+The important difference between tuples and lists is that lists are mutable, tuples are immutable.
+Note that empty tuples (and strings for that matter) are false when empty.
+For the following program:
+	[tuple or list] = None
+	if [tuple or list]:
+		print("True")
+	else:
+		print("False")
+The return would be "False".
+Tuples can be indexed, sliced, and concatenated.
+You can use the "in" operator to test if an element is contained in the tuple. It's easy to use this to see
+	if elements are contained in the list.
+When parsing through a tuple (or list), you can just call the index when doing an action on it.
+For example, this is a program and its output:
+	tuple = ("this", "is", "a", "test")
+	for i in tuple:
+		print(i)
+output:
+	this
+	is
+	a
+	test
+I'm creating a program called 'cooking_dinner.py' to showcase tuples.
+
+This is the end of the chapter. The program "word_jumble.py" is a program from the book to showcase all that was
+	learned in the chapter.
+
+Challenges:
+1. Write a program that counts for the user. Let the user enter the starting number, ending number, and amount by
+which to count.
+	Done, counter.py
+2. Create a program that gets a message from the user and then prints it out backwards.
+3. Improve "Word Jumble" so each word is paired with a hint. The player should see the hint if they get stuck.
+Add a scoring system that rewards the player if they don't ask for the hint.
+4. Create a game where the computer picks a random word and the player has to guess the word.
+The computer tells the player how many letters are in the word.
+Then the plater gets five chances to ask if a letter is in the word.
+The computer can only respond with yes or no.
+Then the player must guess the word.
