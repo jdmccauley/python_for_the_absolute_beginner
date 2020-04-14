@@ -1,0 +1,42 @@
+#include<stdio.h>
+int main(){
+	printf("This is a test of references that python uses.\n");
+	printf("\n\tVariables\t\n\n");
+	int a;
+	int b;
+	int c;
+	a = 1;
+	b = a;
+	c = 1;
+	printf("This is the value of a (given 1): %d\n", a);
+	printf("This is the value of b (given a): %d\n", b);
+	printf("This is the value of c (given 1): %d\n", c);
+	printf("This is the address of a: %p\n", &a);
+	printf("This is the address of b: %p\n", &b);
+	printf("This is the address of c: %p\n", &c);
+	b = 2;
+	c = 2;
+	printf("This is the value of a (unchanged): %d\n", a);
+	printf("This is the new value of b (given 2): %d\n", b);
+	printf("This is the new value of c (given 2): %d\n", c);
+	printf("Note that the value of a does not change when b is changed.\n");
+	printf("This is the address of a: %p\n", &a);
+	printf("This is the address of b: %p\n", &b);
+	printf("This is the address of c: %p\n", &c);
+	printf("\n\tPointers\t\n\n");
+	int test;
+	test = 1;
+	int *test_ptr;
+	test_ptr = &test;
+	printf("This is the value of test (given 1): %d\n", test);
+	printf("This is the value of test_ptr (given test): %d\n", *test_ptr);
+	printf("This is the address of test: %p\n", &test);
+	printf("This is the address of test_ptr: %p\n", &test_ptr);
+	printf("reassigning test_ptr to 2.\n");
+	*test_ptr = 2;
+	printf("This is the value of test (given 1): %d\n", test);
+	printf("This is the value of test_ptr (given test): %d\n", *test_ptr);
+	printf("This is the address of test: %p\n", &test);
+	printf("This is the address of test_ptr: %p\n", &test_ptr);
+	return 0;
+}
