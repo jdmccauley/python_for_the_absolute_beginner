@@ -152,6 +152,80 @@ C on the other hand sets up memory for every single variable, even if values of 
 I'm writing some programs to highlight this called:
 	refernce_test_in_c.c
 	reference_test_in_python.py
+To make a mutable variable that is a copy of another mutable variable, and have the variables not be linked or have
+	the same memory address, use slices:
+	mutable_variable_2 = mutable_variable_1[:]
+	This makes the mutable_variable_2 a copy of the value of mutable_variable_1 in a new address. This way, edits to each variable
+	does not change the other.
 
+Dictionaries
+Dictionaries in python are another type of variable that contain more than one value, like lists and tuples. 
+Dictionaries are variables with pairs of values: a 'key' and a 'value'. 
+	This is like a dictionary book, where each 'word' has a 'definition'.
+Each pair of values in the dictionary is called an 'item'. So a dictionary can have an infinite amount of items, as long as each item
+	has one key and one value.
+To make a dictionary, you must use colons and curly brackets:
+	dictionary = {"key_1": "value_1", "key_2": "value_2}
+Calling values in dictionaries is done like with tuples and lists, but you call the key instead of the index:
+	dictionary["key_1"] -> "value_1"
+	They dictionary[key] outputs the value associated with the key.
+	Note that you use the key, not the index. This is great because you don't have to know the index like you do for lists/tuples.
+	Dictionaries don't have indexes at all actually.
+	You cannot pass a value to get the key however, that us important to note (you can do this with lists using list.index(value))
+Like lists, you can test if keys are in a dictionary by using the 'in' operator:
+	if key_name in dictionary_name:
+		action
+	else:
+		other_action
+Alternatively, you can use the dictionary function get(), more on that later.
+Important things to note about making dictionaries:
+	keys must be unique
+		You cannot have multiple of the same key in the dictionary. If you add a key already in the dictionary, the old one will be deleted.
+	keys have to be immutable
+		You can make the key an integer, string, or tuple, but not a list. Keys cannot be mutable data structures.
+	values don't have to be unique
+		Since values are attached to unique keys, values can be duplicated across the dictionary.
 
+Dictionary Methods
+	dictionary_name.get(key_name, value_if_false)
+		This returns the value if the key exists in the dictionary, and returns the value_if_false when the key is not in the dictionary.
+		By default, the value if false is "None", but you can pass a value if desired.
+	dictionary_name.keys()
+		This prints all of the keys in the dictionary.
+	dictionary_name.values()
+		This returns all of the values in the dictionary.
+	dictionary_name.items()
+		This returns all of the key/value pairs in the dictionary.
 
+Note that items, keys, and values can be iterated with for loops. They cannot be called by index, but you
+	can view them all by printing each iteration in the for loop.
+	Examples:
+		for i in dictionary.keys():
+			print(i)
+		for i in dictionary.values():
+			print(i)
+		for i in dictionary.items():
+			print(i)
+	If you just try to iterate over the dictionary without a method, you get each key.
+		for i in dictionary:
+			print(i)
+	That gets each key in the dictionary.
+The book includes an outline for a dictionary example, and I'm making my own modification called josh_slang.py to showcase dictionaries.
+	It will print items, add new items, and allow the user to delete items.
+	
+As a summary of the chapter, the book outlines a hangman game. I'm going to make my own version, but copy the ASCII art for the hangman
+	in the book version at least.
+
+Challenges:
+1. Make a program that prints a list of words in a random order. The program should print all words and not repeat any.
+	Done, solution = random_order.py
+2. Write a character creator program for a role playing game. Player should be given a pool of 30 points to spend on the following attributes:
+	Strength, Health, Wisdom, and Dexterity. The player should be able to take points from an attribute and put them back in the pool.
+	Done, solution = rpg_character.py
+3. Write a 'Who's your Daddy?' program that lets the user enter the name of a male and produces the name of his father.
+	Allow the user to add, replace, and delete son-father pairs.
+	Done, solution = whos_your_daddy.py
+4. Improve the "Who's your Daddy?' program by adding a choice that lets the user enter a name and get back a grandfather.
+	Your program should still only use one dictionary of father-son pairs. Make sure to include several generations in your dictionary
+	so the match can be found.
+	Done, solution = whos_your_daddy_2.py
