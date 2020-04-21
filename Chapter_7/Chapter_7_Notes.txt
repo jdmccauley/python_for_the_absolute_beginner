@@ -1,0 +1,23 @@
+Chapter 7 Notes
+
+Opening and closing files
+To use files in python, you must open them first. When done with the file, it's a good idea to close the file.
+When using files, you should make them variables so they are easy to call in the program:
+	variable_name = open("file_name.tile_type", "option")
+		The variable name can be anything.
+		File name can also be anything, as long as it's in the file.type format. For example: "text_file.txt"
+		The option tells you the permissions for the file:
+			"r"
+				Read only. If file does not exist, python gives an error.
+			"w"
+				Write permissions. If file exists, it is overwritten. If file doesn't exist, it is made.
+			"a"
+				Append permissions. If file exists, it is appended with changes. If file doesn't exist, it is made.
+			"r+"
+				Read and write permissions. If file does not exist, python gives an error.
+			"w+"
+				Write and read permissions. If file exists, it is overwritten. If file does not exist, it is made.
+			"a+"
+				Append and read permissions. If file exists, it is appended with changes. If file doesn't exist, it is made.
+Note that text files (.txt) are plain text files, so they can only contain ASCII characters.
+				

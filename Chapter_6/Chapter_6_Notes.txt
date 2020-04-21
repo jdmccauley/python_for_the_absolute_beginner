@@ -1,0 +1,177 @@
+Chapter 6 Notes, Topic = Functions
+
+Functions
+Writing and using functions is a way to compartmentalize sections of code and pack them for easy access
+	in a main function, and reuse in other programs.
+For example, when working on a project, you perform one task 6 times in the main program.
+	Instead of writing out the task the 6 times in the main program, you can write the task as a function
+	and save it to another file. Then, you can call the function in the main program 6 times as single lines of code.
+Using functions is a great way to simplify a main program code, and to make the function accessible in other main programs.
+To call a function, you import the program name as a module, and you run the function.
+	In fact, I've already been doing this with the random module:
+		import random	-> this imports the module/program name
+		random.randrange(0,10) 	-> this calls the 'randrange' function from the 'random' module, and passes 0 and 10 as the arguments
+	Format of importing a function is the following:
+		import program_name
+			Note that this does not include the '.py' part of the file name
+		program_name.function_name(arguments)
+			You call the file name, '.', the function name, and pass the arguments
+If the function is written in the main program, you don't need to include the 'program_name.' part of the code.
+	You can just run: function_name(args)
+Arguments are passed into a function to serve as the variables in the function.
+	This is how you use you main program's variables in the function, despite the function using different variable names in its code.
+	Say you have a function 'example.multiply(arg)' that should take the 'arg' variable and multiply it by three.
+		In the function code, it may multiply a variable called 'my_variable'.
+		If the function was written to import an argument for 'my_variable', your main program can use
+			its own variable named 'your_variable', but if it's passed into the function, the function will use
+			'your_variable' in place for 'my_variable' in its code.
+Defining a function is simple:
+	def function_name(input_parameters):
+		code
+You use 'def' to indicate that the function_name is a function, and you contain the input arguments within the parenthesis.
+	When defining the function, use the input_aparameters name in the function to perform actions on imported arguments.
+Note that when defining a function, the term for inputs is parameters (the parameters to run the function),
+	and when the function is called, the variables put into the function are called arguments.
+When you want a function to be used to declare a variable, you must use the 'return' command in the function.
+For example, say I want the function to take 'your_variable', multiply it by three, and let me define 'function_output' as that result.
+Here is the function and main code:
+	#function
+	def multiply(my_var):
+		result = my_var * 3
+		return result
+	#main
+	your_variable = 1
+	function_output = multiply(your_variable)
+	#now function_output has a value of 3
+Note that 'return' is how you get something out of the function to use!
+
+I wrote two programs to show how to write and import functions.
+	The function is written in module_test.py, and the main program is function_test.py
+
+Documentation String
+When writing a function, it is common practice to include a "documentation string".
+This is like a note for functions specifically.
+To write a documentation string, encase a note in triple quotes, and make it the first line in the function:
+	def function_name():
+		"""This is the documentation string"""
+		return 0
+
+Abstraction
+This is a concept to describe what functions do for code.
+Functions let you perform an action without having the details written explictly in the main program.
+This way, when you look at the main program code, you see a function and know what it's doing without having the whole code block written.
+It is important to name functions with names that make it easy to understand what they do in the program,
+	that way it still makes sense what you're doing in the program.
+
+Encapsulation
+This is a concept to describe what functions do for code as well, and it's a principal of abstraction.
+Functions let you perform an action and keep all of the variables used in the function away from the main code.
+This is useful because you can use variables in a function and not need to keep track of them in the main code.
+Say you use a variable quote_to_string in a function because it is used to convert a variable 'quote' to a string.
+	That name is great, and I actually want to use it in the main code to.
+	I can do that since the variable names in the function are encapsulated from the main code.
+
+Positional vs Keyword Parameters/Arguments
+When you define a funtion with multiple parameters, the arguments passed to the function must be writtein the same order
+	as the parameters to run as intended.
+For example, see this function:
+	def person_info(name, age):
+		print("Hello,", name, "you are", age, "years old!)
+If I pass a name and age in different orders, the result indicates that:
+	input: person_info("Josh", "24")
+	output: "Hello, Josh you are 24 years old!"
+	input: person_info("24", "Josh")
+	output: "Hello, 24 you are Josh years old!"
+Notice that the order does matter because these arguments are passed as positional parameter.
+However, if you pass the arguments as Keyword Parameters (explicit declaration), the order doesn't matter:
+	input: person_info(name = "Josh", age = "24")
+	output: "Hello, Josh you are 24 years old!"
+	input: person_info(age = "24", name = "Josh")
+	output: "Hello, Josh you are 24 years old!"
+This is very important to know, since it can be easy to forget what order the variables need to be passed for a function.
+What is also important to note is that all arguments must be either positional or keyword, not a mix.
+	The function will fail if you pass some arguments as positional and some as keyword.
+
+Default Parameter Values
+It can be a great idea to give a function parameter values by default, in case the function needs to be run
+	without any arguments (or you forget to give the arguments).
+To do this, include the default values in the parameters section of function declaration:
+	def person_info(name = "Josh", age = "24")
+		print("Hello,", name, "you are", age, "years old!)
+This lets you get a result of 
+	"Hello, Josh you are 24 years old!"
+	if you choose to just run person_info() without any arguments.
+Note that if you choose to set a default value for one parameter, you must set the default value for all parameters.
+	Otherwise you get an error.
+Default parameters are a good idea to not get errors when running functions without arguments by accident.
+
+Global Variables and Constants
+Functions are encapsulated from main programs in that variables made and used in the functions are not included in main programs,
+	but that does not mean that variables used in main programs are not available to functions.
+When a variable is declared in a program, it is 'global', in that it can be accessed in the program and in functions.
+Variables made in functions are 'local', in that they are only available in the function.
+This means that a function may not need arguments passed if variable names in the function call global variables in the program.
+
+Scope
+Scope is a term to describe the information available to a region of code.
+	So functions have scope of the function and the global variables.
+	Main programs only have scope of the program itself, not variables made in functions.
+At the same time, this means that a global variable can be modified in the function, but if the global variable
+	is called back in the main program, it remains unchanged.
+	You can change this setting by write 'global', but the default is given as above.
+	
+Shadow Variables
+Global variables can be modified in functions, to have a 'local' value.
+At the same time, global variables that are redeclared are given a new 'local' value, while the previous value is 'shadowed.'
+	This means that the value of the global variable is lost in the function, but not lost in the main program.
+Ideally, do not shadow global variables because it can get confusing fast.
+
+Declaring variables in functions intended for global use
+You can make, modify, and redeclare variables in functions and make them available globally if you write 'global' in front.
+For example:
+	#function
+	global my_variable = 5
+This makes 'my_variable' have a value of five globally.
+
+Global Variables and Constants
+As a good practice, it is a bad idea to make variables intended to be modified many times.
+It is best to make global variables if they will be constant, and keep continuously modified variables in functions.
+
+The chapter concludes with an outline on making a tic-tac-toe game with AI. I will copy it to learn from.
+I found the loophole: if you go first and choose 8, then 0 or 2, you can take one of two rows
+	or 6, 2, 8 ->then you can fill one of two positions.
+	Essentially, the hole is that the computer cannot recognize taking a corner as a pre-winning move.
+
+
+Challenges:
+1. Improve the ask_number() function in the tic-tac-toe game so the function can be called with a step value.
+	Make the default value of step 1.
+	Done, solution = tic_tac_toe_2.py
+2. Modify the Guess My Number game from Chapter 3 by reusing the function ask_number()
+	Done, solution = guess_my_number_2.py
+3. Modify the new version of Guess My Number you created in the last challenge so that the program's code
+	is in a function called main(). Don't forget to call main() so that you can play the game.
+	Done, solution = guess_my_number_2_2.py
+	Note: because I had to import tic_tac_toe_2.py and the program runs main(), main() automatically runs in guess_my_number_2_2.py
+	In the future, note that when importing, main code automatically runs.
+	I made an option to run it in this case by editing tic_tac_toe_2.py to inclue optional running of main().
+4. Write a new computer_move() function for the tic-tac-toe game to plug the hole in the computer's strategy.
+	See if you can create an opponent that is unbeatable!
+	
+	How to make solution:
+	Find the only two solutions.
+		Only if human goes first.
+		If board has 7 empty spaces and the human occupied space is a corner, computer move on opposite corner.
+		
+	Count number of empty spaces in board. If 7:
+		if occupied space is human and is in list[0, 2, 6, 8]:
+			if human space is 0:
+				move 8
+			if human space is 2:
+				move 6
+			if human space is 6:
+				move 2
+			if human space is 8:
+				move 0
+	I did this, but it turns out that you can still win. I don't think it is possible to always lose if you go first.
+	Regardless, my solution is tic_tac_toe_improved.py
